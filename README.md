@@ -1,2 +1,4 @@
-# Electrorama-Oscilloscope Documentation
+# Electrorama-Oscilloscope
+
+Documentation
 
