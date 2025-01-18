@@ -1,0 +1,173 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Manufacturing and use calculations of the Electrorama oscilloscope}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Content}
+	\begin{itemize}
+		\item Voltage Divider Current Calculation
+		\item Designing a Voltage Divider for High-Voltage Signal Measurement: Effects on Frequency, Waveform, and Safety
+	\end{itemize}
+	
+	\section{Voltage Divider Current Calculation}
+	
+	\subsection*{I made a voltage divider, from 120 V 60 Hz, to 2.2 V using 1/4 W resistors. What would be the output in \textbf{amps}?}
+
+	To calculate the output current in your voltage divider circuit, we need to know the total resistance of the circuit and apply Ohm's Law:
+	
+	\[
+	I = \frac{V}{R}
+	\]
+	
+	Where:
+	\begin{itemize}
+		\item \( I \) is the current in amps.
+		\item \( V \) is the output voltage in volts (2.2 V in your case).
+		\item \( R \) is the total resistance in ohms.
+	\end{itemize}
+	
+	Since you're using 1/4 W resistors, the power rating limits the maximum allowable current to avoid overheating the resistors. For a 1/4 W resistor, the maximum current \( I_{\text{max}} \) can be calculated as:
+	
+	\[
+	I_{\text{max}} = \sqrt{\frac{P}{R}}
+	\]
+	
+	Where:
+	\begin{itemize}
+		\item \( P = 0.25 \, \text{W} \) (power rating of the resistor),
+		\item \( R \) is the resistance of each resistor.
+	\end{itemize}
+	
+	Now, to determine the actual current output:
+	\begin{enumerate}
+		\item What is the resistance of each resistor?
+		\item How are the resistors arranged (in series or parallel)?
+	\end{enumerate}
+	
+	Example:
+	\( R_1 = 5.5 \, \text{M}\Omega \), \( R_2 = 100 \, \text{k}\Omega \)
+	
+	Let's calculate the output current for your voltage divider with:
+	\begin{itemize}
+		\item \( R_1 = 5.5 \, \text{M}\Omega = 5,500,000 \, \Omega \)
+		\item \( R_2 = 100 \, \text{k}\Omega = 100,000 \, \Omega \)
+		\item Input voltage (\( V_{\text{in}} \)) = 120 V
+		\item Output voltage (\( V_{\text{out}} \)) = 2.2 V (measured across \( R_2 \)).
+	\end{itemize}
+	
+	\subsubsection*{Step 1: Verify the voltage divider output}
+	
+	The voltage across \( R_2 \) in a voltage divider is calculated using the formula:
+	
+	\[
+	V_{\text{out}} = V_{\text{in}} \cdot \frac{R_2}{R_1 + R_2}
+	\]
+	
+	Substitute the values:
+	
+	\[
+	V_{\text{out}} = 120 \cdot \frac{100,000}{5,500,000 + 100,000} 
+	\]
+	
+	\[
+	V_{\text{out}} = 120 \cdot \frac{100,000}{5,600,000} 
+	\]
+	
+	\[
+	V_{\text{out}} = 120 \cdot 0.017857 \approx 2.1428 \, \text{V}
+	\]
+	
+	This is close to your measured output (2.2 V), confirming the setup.
+	
+	\subsubsection*{Step 2: Calculate the current}
+	
+	The current in the circuit is the same through both resistors because they are in series. Using Ohm's Law:
+	
+	\[
+	I = \frac{V_{\text{in}}}{R_1 + R_2}
+	\]
+	
+	Substitute the values:
+	
+	\[
+	I = \frac{120}{5,500,000 + 100,000} = \frac{120}{5,600,000}
+	\]
+	
+	\[
+	I = 0.00002143 \, \text{A} = 21.43 \, \mu\text{A}
+	\]
+	
+	\subsubsection*{Final Answer}
+	
+	The output current is approximately \textbf{21.43 \, \mu\text{A}}.
+
+\subsection*{Topic}
+
+And what is the value of \( I_{\text{max}} \)?
+
+To calculate \( I_{\text{max}} \), the maximum current the resistors can handle before exceeding their power rating, we use the formula:
+
+\[
+I_{\text{max}} = \sqrt{\frac{P}{R}}
+\]
+
+Where:
+\begin{itemize}
+	\item \( P = 0.25 \, \text{W} \) (power rating of the resistor),
+	\item \( R \) is the resistance of the resistor.
+\end{itemize}
+
+For \( R_1 = 5.5 \, \text{M}\Omega \):
+
+\[
+I_{\text{max}} = \sqrt{\frac{0.25}{5,500,000}} 
+\]
+
+\[
+I_{\text{max}} = \sqrt{4.545 \times 10^{-8}} 
+\]
+
+\[
+I_{\text{max}} \approx 6.74 \, \mu\text{A}
+\]
+
+For \( R_2 = 100 \, \text{k}\Omega \):
+
+\[
+I_{\text{max}} = \sqrt{\frac{0.25}{100,000}} 
+\]
+
+\[
+I_{\text{max}} = \sqrt{2.5 \times 10^{-6}} 
+\]
+
+\[
+I_{\text{max}} \approx 1.58 \, \text{mA}
+\]
+
+\subsubsection*{Final Values}
+
+\begin{itemize}
+	\item \( I_{\text{max}} \) for \( R_1 \): \textbf{6.74 \, \mu\text{A}}
+
+	\item \( I_{\text{max}} \) for \( R_2 \): \textbf{1.58 \, \text{mA}}
+\end{itemize}
+
+Since both resistors are in series, the overall \( I_{\text{max}} \) is limited by the smaller value:
+
+\[
+I_{\text{max (overall)}} = 6.74 \, \mu\text{A}
+\]
+
+This is the maximum safe current for your circuit.
+
+
+
+
+\end{document}
